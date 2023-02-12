@@ -4,7 +4,7 @@
   "version": "0.2.0",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
+    "dev": "TAILWIND_MODE=watch astro dev",
     "start": "astro dev",
     "build": "astro build",
     "build:cached": "npm run cache:fetch && astro build",
