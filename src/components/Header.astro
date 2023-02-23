@@ -8,59 +8,35 @@ export interface Props {
 const { path = "/" } = Astro.props;
 
 const navItems = [
-  { label: "Home", path: "/" },
-  { label: "Blog", path: "/blog" },
+  { label: "ホーム", path: "/" },
+  { label: "ブログ", path: "/blog" },
 ];
 ---
 
-<header class="header">
-  <h1 class="text-6xl text-blue-700">
-    <a href="/">{PUBLIC_SITE_TITLE}</a>
-  </h1>
+<div class="sticky top-0 z-10 mb-6">
+  <header>
+    <div class="navbar bg-base-100 border-b border-neutral-500">
+      <!-- TODO: 横幅をコンテンツに合わせる -->
+      <div class="flex-1">
+        <!-- TODO: タイトルロゴのフォントをおしゃれにする -->
+        <!-- 参考：Fontsource　https://lon.sagisawa.me/2021/02/fontsource-for-handling-webfonts -->
+        <a href="/" class="btn btn-ghost normal-case text-xl">{PUBLIC_SITE_TITLE}</a>
+      </div>
+      <div class="flex-none">
+        <ul class="menu menu-horizontal px-1">
+          {
+            navItems.map(({ label, path: p }) => (
+              <li key={label}>
+                <a href={p} class={p === path ? "active" : null}>
+                  {label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </header>
+</div>
 
-  <ul>
-    {
-      navItems.map(({ label, path: p }) => (
-        <li key={label}>
-          <a href={p} class={p === path ? "active" : null}>
-            {label}
-          </a>
-        </li>
-      ))
-    }
-  </ul>
-</header>
-
-<style>
-  .header {
-    display: block;
-    padding: 15px 0;
-    text-align: center;
-  }
-  .header h1 {
-    padding: 0.5rem 0;
-    font-weight: 400;
-    color: #000;
-  }
-  .header h1 a {
-    color: inherit;
-  }
-  .header ul {
-    list-style: none;
-    margin: inherit;
-    padding: 0.5rem 0;
-    font-size: 1.1rem;
-  }
-  @media (max-width: 640px) {
-    .header ul {
-      font-size: 1rem;
-    }
-  }
-  .header ul li {
-    display: inline-block;
-    padding: 0 15px;
-  }
-  .header ul li :global(a.active) {
-    color: var(--accents-3);
-  }
-</style>
+<style></style>
