@@ -6,7 +6,8 @@ import {
 } from "../server-constants.ts";
 // import "../styles/syntax-coloring.css";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
-import Header from '../components/Header.astro'
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 export interface Props {
   title: string;
@@ -54,16 +55,7 @@ const siteOGImage = new URL("/default-og-image.png", Astro.site);
     <div class="container">
       <slot />
     </div>
-    <footer class="footer">
-      <div>
-        <span>&copy; 2023</span>
-        <a href="https://adoboshi.com/">adoboshi</a>
-        <span> | Powered by</span>
-        <a href="https://github.com/otoyo/astro-notion-blog"
-          >astro-notion-blog</a
-        >
-      </div>
-    </footer>
+    <Footer />
   </body>
 </html>
 
@@ -71,18 +63,6 @@ const siteOGImage = new URL("/default-og-image.png", Astro.site);
   .container {
     width: 100%;
     padding: 0 5%;
-  }
-
-  .footer {
-    margin: 40px 0 10px;
-    text-align: center;
-    font-size: 0.75rem;
-  }
-  .footer span {
-    color: #777;
-  }
-  .footer span a {
-    color: inherit;
   }
 </style>
 
