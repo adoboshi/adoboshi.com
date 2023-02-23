@@ -1,3 +1,5 @@
+# Third party licenses
+
 ## astro-notion-blog
 
 **Source**: [https://github.com/otoyo/astro-notion-blog]
