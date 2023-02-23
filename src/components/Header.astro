@@ -1,0 +1,66 @@
+---
+import { PUBLIC_SITE_TITLE } from "../server-constants.ts";
+
+export interface Props {
+  path: string;
+}
+
+const { path = "/" } = Astro.props;
+
+const navItems = [
+  { label: "Home", path: "/" },
+  { label: "Blog", path: "/blog" },
+];
+---
+
+<header class="header">
+  <h1 class="text-6xl text-blue-700">
+    <a href="/">{PUBLIC_SITE_TITLE}</a>
+  </h1>
+
+  <ul>
+    {
+      navItems.map(({ label, path: p }) => (
+        <li key={label}>
+          <a href={p} class={p === path ? "active" : null}>
+            {label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</header>
+
+<style>
+  .header {
+    display: block;
+    padding: 15px 0;
+    text-align: center;
+  }
+  .header h1 {
+    padding: 0.5rem 0;
+    font-weight: 400;
+    color: #000;
+  }
+  .header h1 a {
+    color: inherit;
+  }
+  .header ul {
+    list-style: none;
+    margin: inherit;
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+  }
+  @media (max-width: 640px) {
+    .header ul {
+      font-size: 1rem;
+    }
+  }
+  .header ul li {
+    display: inline-block;
+    padding: 0 15px;
+  }
+  .header ul li :global(a.active) {
+    color: var(--accents-3);
+  }
+</style>
