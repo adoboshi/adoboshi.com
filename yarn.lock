@@ -659,6 +659,11 @@
     tiny-glob "^0.2.9"
     tslib "^2.4.0"
 
+"@popperjs/core@^2.11.2":
+  version "2.11.6"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.6.tgz#cee20bd55e68a1720bdab363ecf0c821ded4cd45"
+  integrity sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==
+
 "@proload/core@^0.3.2":
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/@proload/core/-/core-0.3.3.tgz#0a30c5ab69e21254b339813c674a6197a42337c3"
@@ -4685,6 +4690,13 @@ preferred-pm@^3.0.3:
     find-yarn-workspace-root2 "1.2.16"
     path-exists "^4.0.0"
     which-pm "2.0.0"
+
+preline@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/preline/-/preline-1.7.0.tgz#7668c226ecd8df92583b82338f009b384b277676"
+  integrity sha512-Zqca6I0Pj5C/yVSCgu3xilwuyNgPUSx1ZgbV5inP9OJmvVqEsOshE7zvo78M927f0vheTFIuinvkfNvAhduq6g==
+  dependencies:
+    "@popperjs/core" "^2.11.2"
 
 prelude-ls@^1.2.1:
   version "1.2.1"

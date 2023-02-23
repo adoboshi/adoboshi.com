@@ -1,9 +1,5 @@
 ---
-import {
-  PUBLIC_SITE_TITLE,
-  PUBLIC_SITE_DESCRIPTION,
-  PUBLIC_GA_TRACKING_ID,
-} from "../server-constants.ts";
+import { PUBLIC_SITE_TITLE, PUBLIC_SITE_DESCRIPTION, PUBLIC_GA_TRACKING_ID } from "../server-constants.ts";
 // import "../styles/syntax-coloring.css";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
 import Header from "../components/Header.astro";
@@ -53,18 +49,21 @@ const siteOGImage = new URL("/default-og-image.png", Astro.site);
     <GoogleAnalytics trackingId={PUBLIC_GA_TRACKING_ID} />
     <Header path={path} />
     <div class="container">
+      <!-- TODO: ヘッダーと重ならないようにする　https://tanomasaki.com/headernav-fixed/ -->
       <slot />
     </div>
     <Footer />
   </body>
+  <script is:inline src="/node_modules/preline/dist/preline.js"></script>
 </html>
 
-<style>
+<!-- <style>
   .container {
     width: 100%;
     padding: 0 5%;
   }
 </style>
+
 
 <style is:global>
   :root {
@@ -253,4 +252,4 @@ const siteOGImage = new URL("/default-og-image.png", Astro.site);
     padding: 0.5rem 1rem;
     line-height: 1.2rem;
   }
-</style>
+</style> -->
