@@ -1,15 +1,33 @@
 ---
-import Layout from '../layouts/Layout.astro'
+import Layout from "../layouts/Layout.astro";
+import * as interfaces from "../lib/interfaces.ts";
+import { getAllPosts, getPostBySlug, getAllBlocksByBlockId } from "../lib/notion/client.ts";
+import PostBody from "../components/PostBody.astro";
+export async function getStaticPaths() {
+  const posts = await getAllPosts();
+  return posts.map((post: interfaces.Post) => ({ params: { slug: post.Slug } }));
+}
+const slug = "_index";
+const post = await getPostBySlug(slug);
+if (!post) {
+  throw new Error("Post not found. slug: ${slug}");
+}
+const blocks = await Promise.all([getAllBlocksByBlockId(post.PageId)]);
 ---
 
 <Layout>
-  <div class="container">
-    <main>
-      <h2>Welcome!</h2>
-      <p>Your astro-notion-blog deployed successfully!</p>
-      <p>Have fun!</p>
-    </main>
-  </div>
+  <main>
+    <PostBody blocks={blocks} />
+  </main>
+
+  {
+    /*
+  TODO: asideを追加する
+  <aside>
+    <AsideInfo />
+  </aside>
+  */
+  }
 </Layout>
 
 <style></style>
