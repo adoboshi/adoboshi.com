@@ -48,17 +48,19 @@ const siteOGImage = new URL("/default-og-image.png", Astro.site);
   <body>
     <GoogleAnalytics trackingId={PUBLIC_GA_TRACKING_ID} />
     <Header path={path} />
-    <div class="container mx-auto max-w-5xl px-4">
+    <div class="container mx-auto max-w-5xl px-4 mt-4">
       <slot />
     </div>
-    {
-      /* TODO: ヘッダーと重ならないようにする
-      https://tanomasaki.com/headernav-fixed/
-      */
-    }
     <Footer />
     <script is:inline src="/node_modules/preline/dist/preline.js"></script>
   </body>
 </html>
 
-<style></style>
+<style is:global>
+  /* アンカーリンク遷移時に表示位置をヘッダーの高さだけ下にずらす */
+  @media (min-width: 640px) {
+    :target {
+      scroll-margin-top: 60px;
+    }
+  }
+</style>
