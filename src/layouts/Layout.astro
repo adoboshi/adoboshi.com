@@ -48,10 +48,14 @@ const siteOGImage = new URL("/default-og-image.png", Astro.site);
   <body>
     <GoogleAnalytics trackingId={PUBLIC_GA_TRACKING_ID} />
     <Header path={path} />
-    <div class="container">
-      <!-- TODO: ヘッダーと重ならないようにする　https://tanomasaki.com/headernav-fixed/ -->
+    <div class="flex justify-center max-w-5xl mx-auto">
       <slot />
     </div>
+    {
+      /* TODO: ヘッダーと重ならないようにする
+      https://tanomasaki.com/headernav-fixed/
+      */
+    }
     <Footer />
     <script is:inline src="/node_modules/preline/dist/preline.js"></script>
   </body>
