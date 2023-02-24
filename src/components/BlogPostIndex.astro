@@ -1,0 +1,38 @@
+---
+import { Post } from "../lib/interfaces.ts";
+import { buildPostFeaturedImageURLs, buildURLToImageMap } from "../lib/blog-helpers.ts";
+import NoContents from "./NoContents.astro";
+import PostDate from "./PostDate.astro";
+import PostTags from "./PostTags.astro";
+import PostTitle from "./PostTitle.astro";
+import PostFeaturedImage from "./PostFeaturedImage.astro";
+import PostExcerpt from "./PostExcerpt.astro";
+import ReadMoreLink from "./ReadMoreLink.astro";
+export interface Props {
+  posts: [Post];
+}
+const { heading, posts } = Astro.props;
+const imageURLs = buildPostFeaturedImageURLs(posts).filter((url) => url);
+const imageURLMap = await buildURLToImageMap(imageURLs);
+---
+
+<div>
+  {
+    posts.length === 0 ? (
+      <NoContents contents={posts} />
+    ) : (
+      posts
+        .filter((post) => post.Slug.match(/^[^_]/))
+        .map((post) => (
+          <div key={post.Slug}>
+            <PostDate post={post} />
+            <PostTags post={post} />
+            <PostTitle post={post} />
+            <PostFeaturedImage post={post} urlMap={imageURLMap} />
+            <PostExcerpt post={post} />
+            <ReadMoreLink post={post} />
+          </div>
+        ))
+    )
+  }
+</div>

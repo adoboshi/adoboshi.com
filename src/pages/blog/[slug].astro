@@ -47,7 +47,7 @@ const [blocks, rankedPosts, recentPosts, tags, postsHavingSameTag] = await Promi
 
     <aside>
       <BlogPostsLink heading={"★ " + post.Tags[0]?.name} posts={postsHavingSameTag.filter((p: interfaces.Post) => p.Slug !== post.Slug)} />
-      <BlogPostsLink heading="★ おすすめ" posts={rankedPosts} />
+      <BlogPostsLink heading="★ おすすめ記事" posts={rankedPosts} />
       <BlogPostsLink heading="★ 最近の投稿" posts={recentPosts} />
       <BlogTagsLink heading="★ タグ一覧" tags={tags} />
     </aside>
