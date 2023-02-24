@@ -57,6 +57,9 @@ const siteOGImage = new URL("/default-og-image.png", Astro.site);
 </html>
 
 <style is:global>
+  a:hover {
+    opacity: 0.75;
+  }
   /* アンカーリンク遷移時に表示位置をヘッダーの高さだけ下にずらす */
   @media (min-width: 640px) {
     :target {
