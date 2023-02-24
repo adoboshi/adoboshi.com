@@ -1,21 +1,15 @@
 ---
-import { Post } from '../lib/interfaces.ts'
-import { getPostLink } from '../lib/blog-helpers.ts'
+import { Post } from "../lib/interfaces.ts";
+import { getPostLink } from "../lib/blog-helpers.ts";
 
 export interface Props {
-  post: Post
-  enableLink: boolean
+  post: Post;
+  enableLink: boolean;
 }
 
-const { post, enableLink = true } = Astro.props
+const { post, enableLink = true } = Astro.props;
 ---
 
-<h3 class="post-title">
-  {enableLink ? (
-    <a href={getPostLink(post.Slug)}>
-      {post.Title}
-    </a>
-  ) : post.Title}
-</h3>
-
-<style></style>
+<h1 class="text-xl font-medium text-gray-900 mb-4">
+  {enableLink ? <a href={getPostLink(post.Slug)}>{post.Title}</a> : post.Title}
+</h1>

@@ -15,7 +15,7 @@ const { post } = Astro.props;
     post.Tags &&
       post.Tags.length > 0 &&
       post.Tags.map((tag: SelectProperty) => (
-        <a href={getTagLink(tag.name)} class={`tag ${tag.color} p-0.5 font-semibold text-gray-700 border rounded border-gray-500`}>
+        <a href={getTagLink(tag.name)} class={`tag ${tag.color} p-0.5 font-semibold text-sm text-gray-700 border rounded border-gray-500`}>
           {tag.name}
         </a>
       ))
