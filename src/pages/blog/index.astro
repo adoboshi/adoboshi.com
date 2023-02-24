@@ -13,25 +13,29 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([getPosts(NU
 ---
 
 <Layout title="Blog" path="/blog">
-  <main>
-    <header>
-      <h2>記事</h2>
-    </header>
+  <div class="flex flex-wrap justify-between">
+    <main class="w-full lg:w-4/5">
+      <header>
+        <h2>記事</h2>
+      </header>
 
-    <BlogPostIndex posts={posts} />
+      <article>
+        <BlogPostIndex posts={posts} />
+      </article>
 
-    <footer>
-      <Pagination currentPage={1} numberOfPages={numberOfPages} />
-    </footer>
-  </main>
+      <footer>
+        <Pagination currentPage={1} numberOfPages={numberOfPages} />
+      </footer>
+    </main>
 
-  <aside>
-    {
-      /*
+    <aside class="w-full lg:w-1/6">
+      {
+        /*
       TODO: おすすめ記事リンクをまとめたい
       */
-    }
-    <BlogPostsLink heading="★ おすすめ記事" posts={rankedPosts} />
-    <BlogTagsLink heading="★ タグ一覧" tags={tags} />
-  </aside>
+      }
+      <BlogPostsLink heading="★ おすすめ記事" posts={rankedPosts} />
+      <BlogTagsLink heading="★ タグ一覧" tags={tags} />
+    </aside>
+  </div>
 </Layout>

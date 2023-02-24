@@ -33,9 +33,9 @@ const [blocks, rankedPosts, recentPosts, tags, postsHavingSameTag] = await Promi
 ---
 
 <Layout title={post.Title} description={post.Excerpt} path={getPostLink(post.Slug)}>
-  <div className={styles.container}>
-    <main>
-      <div className={styles.post}>
+  <div class="flex flex-wrap justify-between">
+    <main class="w-full lg:w-4/5">
+      <div>
         <PostDate post={post} />
         <PostTags post={post} />
         <PostTitle post={post} enableLink={false} />
@@ -45,7 +45,7 @@ const [blocks, rankedPosts, recentPosts, tags, postsHavingSameTag] = await Promi
       </div>
     </main>
 
-    <aside>
+    <aside class="w-full lg:w-1/6">
       <BlogPostsLink heading={"★ " + post.Tags[0]?.name} posts={postsHavingSameTag.filter((p: interfaces.Post) => p.Slug !== post.Slug)} />
       <BlogPostsLink heading="★ おすすめ記事" posts={rankedPosts} />
       <BlogPostsLink heading="★ 最近の投稿" posts={recentPosts} />
