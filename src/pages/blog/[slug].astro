@@ -35,7 +35,7 @@ const [blocks, rankedPosts, recentPosts, tags, postsHavingSameTag] = await Promi
 
 <Layout title={post.Title} description={post.Excerpt} path={getPostLink(post.Slug)}>
   <div class="flex flex-wrap justify-between">
-    <main class="w-full lg:w-4/5">
+    <main class="w-full lg:w-3/4">
       <div>
         <PostDate post={post} />
         <PostTags post={post} />

@@ -32,7 +32,7 @@ const currentTag = posts[0].Tags.find((t) => t.name === tag);
 
 <Layout title={`Posts in ${tag} ${page}/${numberOfPages}`} path={`/blog/tag/${tag}/page/${page}`}>
   <div class="flex flex-wrap justify-between">
-    <main class="w-full lg:w-4/5">
+    <main class="w-full lg:w-3/4">
       <header>
         <h2><span class={`tag ${currentTag.color}`}>{tag}</span> {page}/{numberOfPages}</h2>
       </header>

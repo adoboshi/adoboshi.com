@@ -23,7 +23,7 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([getPostsByP
 
 <Layout title={`Posts ${page}/${numberOfPages}`} path={`/blog/page/${page}`}>
   <div class="flex flex-wrap justify-between">
-    <main class="w-full lg:w-4/5">
+    <main class="w-full lg:w-3/4">
       <header>
         <h2>{page}/{numberOfPages}</h2>
       </header>
