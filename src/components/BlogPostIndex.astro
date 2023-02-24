@@ -16,23 +16,47 @@ const imageURLs = buildPostFeaturedImageURLs(posts).filter((url) => url);
 const imageURLMap = await buildURLToImageMap(imageURLs);
 ---
 
-<div>
-  {
-    posts.length === 0 ? (
-      <NoContents contents={posts} />
-    ) : (
-      posts
-        .filter((post) => post.Slug.match(/^[^_]/))
-        .map((post) => (
-          <div key={post.Slug}>
-            <PostDate post={post} />
-            <PostTags post={post} />
-            <PostTitle post={post} />
-            <PostFeaturedImage post={post} urlMap={imageURLMap} />
-            <PostExcerpt post={post} />
-            <ReadMoreLink post={post} />
-          </div>
-        ))
-    )
-  }
-</div>
+<section class="text-gray-600 body-font overflow-hidden">
+  <div class="container py-6 mx-auto">
+    <div class="-my-8 divide-y-2 divide-gray-200">
+      {
+        posts.length === 0 ? (
+          <NoContents contents={posts} />
+        ) : (
+          posts
+            .filter((post) => post.Slug.match(/^[^_]/))
+            .map((post) => (
+              <div key={post.Slug}>
+                <div class="py-8 flex flex-wrap md:flex-nowrap">
+                  <div class="md:w-32 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+                    <span>
+                      <PostTags post={post} />
+                    </span>
+                    <span class="mt-1">
+                      <PostDate post={post} />
+                    </span>
+                  </div>
+                  <div class="md:flex-grow">
+                    <span class="mb-4">
+                      <PostTitle post={post} />
+                    </span>
+                    <span>
+                      <PostExcerpt post={post} />
+                    </span>
+                    <a class="text-indigo-500 inline-flex items-center mt-4">
+                      <ReadMoreLink post={post} />
+                      <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14" />
+                        <path d="M12 5l7 7-7 7" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))
+        )
+        /* <PostFeaturedImage post={post} urlMap={imageURLMap} /> */
+      }
+    </div>
+  </div>
+</section>

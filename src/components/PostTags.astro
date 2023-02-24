@@ -1,24 +1,23 @@
 ---
-import type { Post, SelectProperty } from '../lib/interfaces.ts'
-import { getTagLink } from '../lib/blog-helpers.ts'
-import '../styles/notion-color.css'
+import type { Post, SelectProperty } from "../lib/interfaces.ts";
+import { getTagLink } from "../lib/blog-helpers.ts";
+import "../styles/notion-color.css";
 
 export interface Props {
-  post: Post
+  post: Post;
 }
 
-const { post } = Astro.props
+const { post } = Astro.props;
 ---
 
-<div class="post-tags">
-  {post.Tags &&
-    post.Tags.length > 0 &&
-    post.Tags.map((tag: SelectProperty) => (
-      <a href={getTagLink(tag.name)} class={`tag ${tag.color}`}>
-        {tag.name}
-      </a>
-    ))}
+<div>
+  {
+    post.Tags &&
+      post.Tags.length > 0 &&
+      post.Tags.map((tag: SelectProperty) => (
+        <a href={getTagLink(tag.name)} class={`tag ${tag.color} p-0.5 font-semibold text-gray-700 border rounded border-gray-500`}>
+          {tag.name}
+        </a>
+      ))
+  }
 </div>
-
-<style>
-</style>
