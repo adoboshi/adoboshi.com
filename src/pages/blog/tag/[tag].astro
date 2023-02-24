@@ -5,6 +5,7 @@ import { getPostsByTag, getRankedPosts, getAllTags, getNumberOfPagesByTag } from
 import Layout from "../../../layouts/Layout.astro";
 import BlogPostIndex from "../../../components/BlogPostIndex.astro";
 import Pagination from "../../../components/Pagination.astro";
+import AsideProfile from "../../../components/AsideProfile.astro";
 import BlogPostsLink from "../../../components/BlogPostsLink.astro";
 import BlogTagsLink from "../../../components/BlogTagsLink.astro";
 import styles from "../../../styles/blog.module.css";
@@ -37,6 +38,7 @@ const currentTag = posts[0].Tags.find((t) => t.name === tag);
     </main>
 
     <aside class="w-full lg:w-1/6">
+      <AsideProfile />
       <BlogPostsLink heading="★ おすすめ記事" posts={rankedPosts} />
       <BlogTagsLink heading="★ タグ一覧" tags={tags} />
     </aside>

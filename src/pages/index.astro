@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import * as interfaces from "../lib/interfaces.ts";
 import { getAllPosts, getPostBySlug, getAllBlocksByBlockId } from "../lib/notion/client.ts";
 import PostBody from "../components/PostBody.astro";
+import AsideProfile from "../components/AsideProfile.astro";
 export async function getStaticPaths() {
   const posts = await getAllPosts();
   return posts.map((post: interfaces.Post) => ({ params: { slug: post.Slug } }));
@@ -23,7 +24,7 @@ const blocks = await Promise.all([getAllBlocksByBlockId(post.PageId)]);
       </article>
     </main>
     <aside class="w-full lg:w-1/6">
-      <p>a</p>
+      <AsideProfile />
     </aside>
   </div>
 

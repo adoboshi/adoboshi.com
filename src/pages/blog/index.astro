@@ -5,6 +5,7 @@ import { getPosts, getRankedPosts, getAllTags, getNumberOfPages } from "../../li
 import Layout from "../../layouts/Layout.astro";
 import BlogPostIndex from "../../components/BlogPostIndex.astro";
 import Pagination from "../../components/Pagination.astro";
+import AsideProfile from "../../components/AsideProfile.astro";
 import BlogPostsLink from "../../components/BlogPostsLink.astro";
 import BlogTagsLink from "../../components/BlogTagsLink.astro";
 import styles from "../../styles/blog.module.css";
@@ -29,6 +30,7 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([getPosts(NU
     </main>
 
     <aside class="w-full lg:w-1/6">
+      <AsideProfile />
       {
         /*
       TODO: おすすめ記事リンクをまとめたい
