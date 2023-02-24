@@ -32,7 +32,7 @@ SOFTWARE.
 
 ## Preline UI
 
-**Source**: [https://preline.co/docs/license.html]
+**Source**: [https://preline.co/index.html]
 
 ### License
 
@@ -62,7 +62,7 @@ SOFTWARE.
 
 ## Unicons
 
-**Source**: [https://github.com/Iconscout/unicons/blob/master/LICENSE]
+**Source**: [https://github.com/Iconscout/unicons]
 
 ### License
 
@@ -78,4 +78,34 @@ This license does not include the right to collect or compile Files from IconSco
 Use of Files in your product or project without attributing the creator(s) of the Files is permitted under this license, though attribution is strongly encouraged. If attributions are included, such attributions should be visible to the end-user. However, Any assets uploaded or published by you of which you are **not the original designer** but you have edited in some way must have the original creator attributed and a link provided to the original animation in the description. If you fail to do this, the upload falls under the category of plagiarised content can be reported and may be removed from IconScout.
 
 FILES ARE PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. EXCEPT TO THE EXTENT REQUIRED BY APPLICABLE LAW, IN NO EVENT WILL THE CREATOR(S) OF FILES OR DESIGN BARN, INC. BE LIABLE ON ANY LEGAL THEORY FOR ANY SPECIAL, INCIDENTAL, CONSEQUENTIAL, PUNITIVE, OR EXEMPLARY DAMAGES ARISING OUT OF THIS LICENSE OR THE USE OF SUCH FILES.
+```
+
+## Tailblocks
+
+**Source**: [https://github.com/mertJF/tailblocks]
+
+### License
+
+```
+The MIT License (MIT)
+
+Copyright (c) 2020 Mert Cukuren
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 ```
