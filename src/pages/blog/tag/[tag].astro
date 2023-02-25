@@ -43,7 +43,7 @@ const currentTag = posts[0].Tags.find((t) => t.name === tag);
     <aside class="w-aside">
       <AsideProfile />
       <!-- <BlogPostsLink heading="★ おすすめ記事" posts={rankedPosts} /> -->
-      <BlogTagsLink heading="★ タグ一覧" tags={tags} />
+      <BlogTagsLink tags={tags} />
     </aside>
   </div>
 </Layout>

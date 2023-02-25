@@ -12,15 +12,17 @@ export interface Props {
 const { heading, tags } = Astro.props;
 ---
 
-<div class="blog-tags-link">
-  <h3>{heading}</h3>
+<div class="hidden md:block">
+  <h3 class="text-lg font-semibold text-center mb-1">
+    タグ一覧
+  </h3>
   {
     tags.length === 0 ? (
       <NoContents contents={tags} />
     ) : (
       <ul>
         {tags.map((tag: SelectProperty) => (
-          <li>
+          <li class="mb-2">
             <a href={getTagLink(tag.name)} class={`tag ${tag.color} p-0.5 font-semibold text-sm text-gray-700 border rounded border-gray-500`}>
               {tag.name}
             </a>

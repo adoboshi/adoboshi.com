@@ -26,7 +26,6 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
 <Layout title="Blog" path="/blog">
   <div class="flex flex-wrap justify-between">
     <main class="w-main">
-      {/* TODO: ヘッダーをいい感じに */}
       <header class="mb-4">
         <h2 class="text-2xl text-gray-700 font-semibold">
           新着記事
@@ -44,13 +43,8 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
 
     <aside class="w-aside">
       <AsideProfile />
-      {
-        /*
-      TODO: おすすめ記事リンクをまとめたい
-      */
-      }
       <!-- <BlogPostsLink heading="★ おすすめ記事" posts={rankedPosts} /> -->
-      <BlogTagsLink heading="★ タグ一覧" tags={tags} />
+      <BlogTagsLink tags={tags} />
     </aside>
   </div>
 </Layout>
