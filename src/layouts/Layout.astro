@@ -23,11 +23,6 @@ const siteTitle = title ? `${title} - ${PUBLIC_SITE_TITLE}` : PUBLIC_SITE_TITLE;
 const siteDescription = description ? description : PUBLIC_SITE_DESCRIPTION;
 const siteURL = new URL(path, Astro.site).toString();
 const siteOGImage = new URL("/default-og-image.png", Astro.site);
-
-const navItems = [
-  { label: 'Home', path: '/' },
-  { label: 'Blog', path: '/blog' },
-]
 ---
 
 <!DOCTYPE html>
@@ -59,24 +54,7 @@ const navItems = [
   <body>
     <GoogleAnalytics trackingId={PUBLIC_GA_TRACKING_ID} />
     <Header path={path} />
-    <header class="header">
-      <h1>
-        <a href={getNavLink('/')}>{PUBLIC_SITE_TITLE}</a>
-      </h1>
-
-      <ul>
-        {
-          navItems.map(({ label, path: p }) => (
-            <li key={label}>
-              <a href={getNavLink(p)} class={p === path ? 'active' : null}>
-                {label}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </header>
-    <div class="container">
+    <div class="container mx-auto max-w-5xl px-4 mt-6">
       <slot />
     </div>
     <Footer />

@@ -21,7 +21,7 @@ import PostDate from '../../components/PostDate.astro'
 import PostTags from '../../components/PostTags.astro'
 import PostTitle from '../../components/PostTitle.astro'
 import PostBody from '../../components/PostBody.astro'
-import AsideProfile from "../../components/AsideProfile.astro";
+import AsideProfile from '../../components/AsideProfile.astro'
 import PostRelativeLink from '../../components/PostRelativeLink.astro'
 import BlogPostsLink from '../../components/BlogPostsLink.astro'
 import BlogTagsLink from '../../components/BlogTagsLink.astro'
@@ -32,11 +32,11 @@ export async function getStaticPaths() {
   return posts.map((post: interfaces.Post) => ({ params: { slug: post.Slug } }))
 }
 
-const { slug } = Astro.params;
+const { slug } = Astro.params
 
-const post = await getPostBySlug(slug);
+const post = await getPostBySlug(slug)
 if (!post) {
-  throw new Error("Post not found. slug: ${slug}");
+  throw new Error('Post not found. slug: ${slug}')
 }
 
 const [blocks, allPosts, rankedPosts, recentPosts, tags, postsHavingSameTag] =
@@ -100,15 +100,13 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
   path={getPostLink(post.Slug)}
   ogImage={ogImage}
 >
-  <div className={styles.container}>
-    <main>
-      <div className={styles.post}>
+  <div class="flex flex-wrap justify-between">
+    <main class="w-full lg:w-3/4">
+      <div>
         <PostDate post={post} />
         <PostTags post={post} />
         <PostTitle post={post} enableLink={false} />
         <PostBody blocks={blocks} />
-        <PostTags post={post} />
-
         <footer>
           <PostRelativeLink prevPost={prevPost} nextPost={nextPost} />
         </footer>
@@ -117,7 +115,12 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
 
     <aside class="w-full lg:w-1/6">
       <AsideProfile />
-      <BlogPostsLink heading={"★ " + post.Tags[0]?.name} posts={postsHavingSameTag.filter((p: interfaces.Post) => p.Slug !== post.Slug)} />
+      <BlogPostsLink
+        heading={'★ ' + post.Tags[0]?.name}
+        posts={postsHavingSameTag.filter(
+          (p: interfaces.Post) => p.Slug !== post.Slug
+        )}
+      />
       <BlogPostsLink heading="★ おすすめ記事" posts={rankedPosts} />
       <BlogPostsLink heading="★ 最近の投稿" posts={recentPosts} />
       <BlogTagsLink heading="★ タグ一覧" tags={tags} />

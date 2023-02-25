@@ -14,9 +14,6 @@ const getSite = function () {
   if (CUSTOM_DOMAIN) {
     return new URL(BASE_PATH, `https://${CUSTOM_DOMAIN}`).toString();
   }
-  return `https://${new URL(process.env.CF_PAGES_URL).host.split('.').slice(1).join('.')}`;
-};
-
   return new URL(
     BASE_PATH,
     `https://${new URL(process.env.CF_PAGES_URL).host
