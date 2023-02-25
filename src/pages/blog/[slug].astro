@@ -115,14 +115,14 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
 
     <aside class="w-full lg:w-1/6">
       <AsideProfile />
-      <BlogPostsLink
+      <!-- <BlogPostsLink
         heading={'★ ' + post.Tags[0]?.name}
         posts={postsHavingSameTag.filter(
           (p: interfaces.Post) => p.Slug !== post.Slug
         )}
-      />
-      <BlogPostsLink heading="★ おすすめ記事" posts={rankedPosts} />
-      <BlogPostsLink heading="★ 最近の投稿" posts={recentPosts} />
+      /> -->
+      <!-- <BlogPostsLink heading="★ おすすめ記事" posts={rankedPosts} /> -->
+      <!-- <BlogPostsLink heading="★ 最近の投稿" posts={recentPosts} /> -->
       <BlogTagsLink heading="★ タグ一覧" tags={tags} />
     </aside>
   </div>
