@@ -1,24 +1,31 @@
 import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
-const CUSTOM_DOMAIN = ''; // <- Set your costom domain if you have. e.g. alpacat.com
+import { CUSTOM_DOMAIN, BASE_PATH } from './src/server-constants';
+import FeaturedImageDownloader from './src/integrations/featured-image-downloader';
+import PublicNotionCopier from './src/integrations/public-notion-copier';
 
 const getSite = function () {
   if (!process.env.CF_PAGES) {
-    return 'http://localhost:3000';
+    return new URL(BASE_PATH, 'http://localhost:3000').toString();
   }
   if (process.env.CF_PAGES_BRANCH !== 'main') {
-    return process.env.CF_PAGES_URL;
+    return new URL(BASE_PATH, process.env.CF_PAGES_URL).toString();
   }
   if (CUSTOM_DOMAIN) {
-    return `https://${CUSTOM_DOMAIN}`;
+    return new URL(BASE_PATH, `https://${CUSTOM_DOMAIN}`).toString();
   }
-  return `https://${new URL(process.env.CF_PAGES_URL).host.split('.').slice(1).join('.')}`;
+  return new URL(
+    BASE_PATH,
+    `https://${new URL(process.env.CF_PAGES_URL).host
+      .split('.')
+      .slice(1)
+      .join('.')}`
+  ).toString();
 };
-
-// https://astro.build/config
 
 // https://astro.build/config
 export default defineConfig({
   site: getSite(),
-  integrations: [tailwind()]
+  base: BASE_PATH,
+  integrations: [tailwind(), FeaturedImageDownloader(), PublicNotionCopier()],
 });

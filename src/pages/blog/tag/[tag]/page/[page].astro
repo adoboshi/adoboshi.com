@@ -34,7 +34,10 @@ const currentTag = posts[0].Tags.find((t) => t.name === tag);
   <div class="flex flex-wrap justify-between">
     <main class="w-full lg:w-3/4">
       <header>
-        <h2><span class={`tag ${currentTag.color}`}>{tag}</span> {page}/{numberOfPages}</h2>
+        <h2>
+          <span class={`tag ${currentTag.color}`}>{tag}</span>
+          {page}/{numberOfPages}
+        </h2>
       </header>
 
       <article>
@@ -42,7 +45,11 @@ const currentTag = posts[0].Tags.find((t) => t.name === tag);
       </article>
 
       <footer>
-        <Pagination tag={tag} currentPage={parseInt(page, 10)} numberOfPages={numberOfPages} />
+        <Pagination
+          tag={tag}
+          currentPage={parseInt(page, 10)}
+          numberOfPages={numberOfPages}
+        />
       </footer>
     </main>
 

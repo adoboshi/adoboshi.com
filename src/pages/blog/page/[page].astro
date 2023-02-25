@@ -33,7 +33,10 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([getPostsByP
       </article>
 
       <footer>
-        <Pagination currentPage={parseInt(page, 10)} numberOfPages={numberOfPages} />
+        <Pagination
+          currentPage={parseInt(page, 10)}
+          numberOfPages={numberOfPages}
+        />
       </footer>
     </main>
 
