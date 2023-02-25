@@ -58,6 +58,7 @@ const siteOGImage = new URL("/default-og-image.png", Astro.site);
       <slot />
     </div>
     <Footer />
+    {ENABLE_LIGHTBOX && <script src="/scripts/fslightbox.js" />}
     <script is:inline src="/node_modules/preline/dist/preline.js"></script>
   </body>
 </html>
