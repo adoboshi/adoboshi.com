@@ -101,7 +101,7 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
   ogImage={ogImage}
 >
   <div class="flex flex-wrap justify-between">
-    <main class="w-full lg:w-3/4">
+    <main class="w-main">
       <div>
         <PostDate post={post} />
         <PostTags post={post} />
@@ -113,7 +113,7 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
       </div>
     </main>
 
-    <aside class="w-full lg:w-1/6">
+    <aside class="w-aside">
       <AsideProfile />
       <!-- <BlogPostsLink
         heading={'★ ' + post.Tags[0]?.name}

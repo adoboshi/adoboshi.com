@@ -18,12 +18,12 @@ const blocks = await Promise.all([getAllBlocksByBlockId(post.PageId)]);
 
 <Layout>
   <div class="flex flex-wrap justify-between">
-    <main class="w-full lg:w-3/4">
+    <main class="w-main">
       <article>
         <PostBody blocks={blocks} />
       </article>
     </main>
-    <aside class="w-full lg:w-1/6">
+    <aside class="w-aside">
       <AsideProfile />
     </aside>
   </div>
