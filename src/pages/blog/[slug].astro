@@ -102,15 +102,19 @@ if (post.FeaturedImage && post.FeaturedImage.Url) {
 >
   <div class="flex flex-wrap justify-between">
     <main class="w-main">
-      <div>
+      <article>
         <PostDate post={post} />
-        <PostTags post={post} />
-        <PostTitle post={post} enableLink={false} />
+        <div class="flex flex-row gap-2 mt-1 mb-4">
+          <PostTags post={post} />
+        </div>
+        <div class="mb-8">
+          <PostTitle post={post} enableLink={false} />
+        </div>
         <PostBody blocks={blocks} />
-        <footer>
-          <PostRelativeLink prevPost={prevPost} nextPost={nextPost} />
-        </footer>
-      </div>
+      </article>
+      <footer>
+        <PostRelativeLink prevPost={prevPost} nextPost={nextPost} />
+      </footer>
     </main>
 
     <aside class="w-aside">

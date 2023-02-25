@@ -1,10 +1,10 @@
 ---
-import { Post } from "../lib/interfaces.ts";
-import { getPostLink } from "../lib/blog-helpers.ts";
+import { Post } from '../lib/interfaces.ts'
+import { getPostLink } from '../lib/blog-helpers.ts'
 
 export interface Props {
-  post: Post;
-  enableLink: boolean;
+  post: Post
+  enableLink: boolean
 }
 
 const { post, enableLink = true } = Astro.props
@@ -15,6 +15,14 @@ if (post.Icon.Emoji) {
 }
 ---
 
-<h1 class="text-xl font-medium text-gray-900 mb-4">
-  {enableLink ? <a href={getPostLink(post.Slug)}>{title}</a> : title}
-</h1>
+<div class="mb-4">
+  {
+    enableLink ? (
+      <h2 class="text-xl font-medium text-gray-900">
+        <a href={getPostLink(post.Slug)}>{title}</a>
+      </h2>
+    ) : (
+      <h1 class="text-2xl font-medium text-gray-900">{title}</h1>
+    )
+  }
+</div>
