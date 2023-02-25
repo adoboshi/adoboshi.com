@@ -7,9 +7,14 @@ export interface Props {
   enableLink: boolean;
 }
 
-const { post, enableLink = true } = Astro.props;
+const { post, enableLink = true } = Astro.props
+
+let title = post.Title
+if (post.Icon.Emoji) {
+  title = `${post.Icon.Emoji} ${title}`
+}
 ---
 
 <h1 class="text-xl font-medium text-gray-900 mb-4">
-  {enableLink ? <a href={getPostLink(post.Slug)}>{post.Title}</a> : post.Title}
+  {enableLink ? <a href={getPostLink(post.Slug)}>{title}</a> : title}
 </h1>
