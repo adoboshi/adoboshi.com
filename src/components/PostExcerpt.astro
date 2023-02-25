@@ -8,13 +8,6 @@ export interface Props {
 const { post } = Astro.props;
 ---
 
-<div class="post-excerpt line-clamp-3">
-  <p>{post.Excerpt ? post.Excerpt : ""}</p>
-</div>
-
-<style>
-  .post-excerpt {
-    padding: 0.4rem 0;
-    font-size: 1rem;
-  }
-</style>
+<p class="leading-relaxed line-clamp-3">
+  {post.Excerpt ? post.Excerpt : ""}
+</p>

@@ -13,17 +13,20 @@ const navItems = [
 ];
 ---
 
-<div class="sticky top-0 z-10 mb-6">
-  <header class="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white text-sm py-4 dark:bg-gray-800">
-    <!-- TODO: 横幅をコンテンツに合わせる -->
-    <nav class="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between" aria-label="Global">
-      <a class="flex-none text-xl font-semibold dark:text-white" href="/">{PUBLIC_SITE_TITLE}</a>
-      <!-- TODO: タイトルロゴのフォントをおしゃれにする -->
-      <!-- 参考：Fontsource　https://lon.sagisawa.me/2021/02/fontsource-for-handling-webfonts -->
+<div class="sm:sticky sm:top-0 sm:z-50">
+  <header class="flex flex-wrap sm:justify-start sm:flex-nowrap w-full py-4 bg-gray-800">
+    <nav class="max-w-5xl w-full mx-auto sm:flex sm:items-center sm:justify-between px-4" aria-label="Global">
+      <a class="flex-none text-xl font-semibold text-white" href="/">{PUBLIC_SITE_TITLE}</a>
+      {
+        /*
+        TODO: タイトルロゴのフォントをおしゃれにする
+        参考：Fontsource　https://lon.sagisawa.me/2021/02/fontsource-for-handling-webfonts
+        */
+      }
       <div class="flex flex-row items-center gap-5 mt-5 sm:justify-end sm:mt-0 sm:pl-5">
         {
           navItems.map(({ label, path: p }) => (
-            <a href={p} class={p === path ? "font-medium text-blue-500" : "font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500"}>
+            <a href={p} class={p === path ? "font-medium text-blue-300" : "font-medium text-gray-100"}>
               {label}
             </a>
           ))

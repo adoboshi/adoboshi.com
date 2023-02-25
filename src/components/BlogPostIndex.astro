@@ -1,0 +1,58 @@
+---
+import { Post } from "../lib/interfaces.ts";
+import { buildPostFeaturedImageURLs, buildURLToImageMap } from "../lib/blog-helpers.ts";
+import NoContents from "./NoContents.astro";
+import PostDate from "./PostDate.astro";
+import PostTags from "./PostTags.astro";
+import PostTitle from "./PostTitle.astro";
+import PostFeaturedImage from "./PostFeaturedImage.astro";
+import PostExcerpt from "./PostExcerpt.astro";
+import ReadMoreLink from "./ReadMoreLink.astro";
+export interface Props {
+  posts: [Post];
+}
+const { posts } = Astro.props;
+const imageURLs = buildPostFeaturedImageURLs(posts).filter((url) => url);
+const imageURLMap = await buildURLToImageMap(imageURLs);
+---
+
+<section class="text-gray-600 overflow-hidden">
+  <div class="container py-6 mx-auto">
+    <div class="-my-8 divide-y-2 divide-gray-200">
+      {
+        posts.length === 0 ? (
+          <NoContents contents={posts} />
+        ) : (
+          posts
+            .filter((post) => post.Slug.match(/^[^_]/))
+            .map((post) => (
+              <div key={post.Slug}>
+                <div class="py-6 flex flex-wrap md:flex-nowrap flex-col md:flex-row md:items-baseline">
+                  <div class="md:w-40 md:mb-0 mb-2 flex-shrink-0 flex flex-col">
+                    <span class="flex flex-col">
+                      <PostTags post={post} />
+                    </span>
+                    <span class="mt-1">
+                      <PostDate post={post} />
+                    </span>
+                  </div>
+                  <div>
+                    <span>
+                      <PostTitle post={post} />
+                    </span>
+                    <span>
+                      <PostExcerpt post={post} />
+                    </span>
+                    <span>
+                      <ReadMoreLink post={post} />
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))
+        )
+        /* <PostFeaturedImage post={post} urlMap={imageURLMap} /> */
+      }
+    </div>
+  </div>
+</section>
