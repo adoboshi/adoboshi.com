@@ -14,8 +14,8 @@ const { posts } = Astro.props
 ---
 
 <section class="text-gray-600 overflow-hidden">
-  <div class="container py-6 mx-auto">
-    <div class="-my-8 divide-y-2 divide-gray-200">
+  <div class="container py-6 mx-auto divide-gray-200 border-y-2 border-gray-200">
+    <div class="-my-8 divide-y-2">
       {
         posts.length === 0 ? (
           <NoContents contents={posts} />

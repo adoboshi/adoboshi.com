@@ -33,10 +33,11 @@ const currentTag = posts[0].Tags.find((t) => t.name === tag);
 <Layout title={`Posts in ${tag} ${page}/${numberOfPages}`} path={`/blog/tag/${tag}/page/${page}`}>
   <div class="flex flex-wrap justify-between">
     <main class="w-full lg:w-3/4">
-      <header>
-        <h2>
-          <span class={`tag ${currentTag.color}`}>{tag}</span>
-          {page}/{numberOfPages}
+      <header class="mb-4">
+        <h2 class="text-2xl text-gray-700 font-semibold inline-flex items-center">
+          <span>タグ：</span>
+          <span class={`tag ${currentTag.color} p-0.5 font-semibold text-lg text-gray-700 border rounded border-gray-500`}>{tag}</span>
+          <span class="ml-6">{page}/{numberOfPages}ページ</span>
         </h2>
       </header>
 
