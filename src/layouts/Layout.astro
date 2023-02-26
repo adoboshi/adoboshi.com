@@ -42,7 +42,8 @@ const siteOGImage = new URL('/default-og-image.png', Astro.site)
     <meta property="og:image" content={ogImage || siteOGImage} />
     <meta name="twitter:title" content={siteTitle} />
     <meta name="twitter:description" content={siteDescription} />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@adoboshi" />
     <meta name="twitter:image" content={ogImage || siteOGImage} />
     <link
       rel="stylesheet"
@@ -69,6 +70,11 @@ const siteOGImage = new URL('/default-og-image.png', Astro.site)
   @tailwind utilities;
 
   @layer components {
+    /* テキスト選択時の色を変える */
+    ::selection {
+      color: #fff;
+      background-color: #3f97fa;
+    }
     a:hover {
       @apply opacity-75;
     }
@@ -77,10 +83,10 @@ const siteOGImage = new URL('/default-og-image.png', Astro.site)
       @apply sm:scroll-mt-[60px];
     }
     .w-main {
-      @apply w-full md:w-3/4
+      @apply w-full md:w-3/4;
     }
     .w-aside {
-      @apply w-full md:w-1/6
+      @apply w-full md:w-1/6;
     }
   }
 </style>
