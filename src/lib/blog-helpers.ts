@@ -1,5 +1,5 @@
 import fetch from 'node-fetch'
-import { CUSTOM_DOMAIN, BASE_PATH, REQUEST_TIMEOUT_MS } from '../server-constants'
+import { BASE_PATH, REQUEST_TIMEOUT_MS } from '../server-constants'
 import type {
   Block,
   Heading1,
@@ -128,10 +128,6 @@ export const getNavLink = (nav: string) => {
 
 export const getPostLink = (slug: string) => {
   return pathJoin(BASE_PATH, `/blog/${slug}`)
-}
-
-export const getPostUrl = (slug: string) => {
-  return "https://" + CUSTOM_DOMAIN + `/blog/${slug}`
 }
 
 export const getTagLink = (tag: string) => {
