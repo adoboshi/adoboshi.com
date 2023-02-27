@@ -4,7 +4,7 @@
   "version": "0.3.0",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
+    "dev": "TAILWIND_MODE=watch astro dev",
     "start": "astro dev",
     "build": "astro build",
     "build:cached": "npm run cache:fetch && astro build",
@@ -19,9 +19,12 @@
   "dependencies": {
     "@astrojs/react": "^1.2.2",
     "@astrojs/rss": "^2.0.0",
+    "@astrojs/tailwind": "^3.0.1",
     "@notionhq/client": "^2.2.3",
     "@supercharge/promise-pool": "^2.3.2",
-    "astro": "^2.0.10",
+    "@tailwindcss/line-clamp": "^0.4.2",
+    "@tailwindcss/typography": "^0.5.9",
+    "astro": "^2.0.4",
     "katex": "^0.16.4",
     "mermaid": "^9.3.0",
     "metascraper": "^5.33.4",
@@ -29,9 +32,11 @@
     "metascraper-image": "^5.33.4",
     "metascraper-title": "^5.33.4",
     "node-fetch": "^3.3.0",
+    "preline": "^1.7.0",
     "prismjs": "^1.29.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.0.24"
   },
   "devDependencies": {
     "@nrwl/nx-cloud": "^15.0.2",

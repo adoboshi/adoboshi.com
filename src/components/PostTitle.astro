@@ -15,25 +15,14 @@ if (post.Icon.Emoji) {
 }
 ---
 
-<h3 class="post-title">
-  {enableLink ? <a href={getPostLink(post.Slug)}>{title}</a> : title}
-</h3>
-
-<style>
-  .post-title {
-    font-size: 1.6rem;
-    color: var(--fg);
+<div class="mb-4">
+  {
+    enableLink ? (
+      <h2 class="text-xl font-medium text-gray-900">
+        <a href={getPostLink(post.Slug)}>{title}</a>
+      </h2>
+    ) : (
+      <h1 class="text-2xl font-medium text-gray-900">{title}</h1>
+    )
   }
-  .post-title a {
-    font-size: 1.2rem;
-    color: inherit;
-  }
-  @media (max-width: 640px) {
-    .post-title {
-      font-size: 1.2rem;
-    }
-    .post-title a {
-      font-size: 1.15rem;
-    }
-  }
-</style>
+</div>

@@ -4,7 +4,7 @@ export const DATABASE_ID =
   import.meta.env.DATABASE_ID || process.env.DATABASE_ID || ''
 
 export const CUSTOM_DOMAIN =
-  import.meta.env.CUSTOM_DOMAIN || process.env.CUSTOM_DOMAIN || '' // <- Set your costom domain if you have. e.g. alpacat.com
+  import.meta.env.CUSTOM_DOMAIN || process.env.CUSTOM_DOMAIN || 'adoboshi.com' // <- Set your costom domain if you have. e.g. alpacat.com
 export const BASE_PATH =
   import.meta.env.BASE_PATH || process.env.BASE_PATH || '' // <- Set sub directory path if you want. e.g. /docs/
 
@@ -16,6 +16,5 @@ export const REQUEST_TIMEOUT_MS = parseInt(
 )
 export const ENABLE_LIGHTBOX = import.meta.env.ENABLE_LIGHTBOX
 
-export const PUBLIC_SITE_TITLE = 'astro-notion-blog'
-export const PUBLIC_SITE_DESCRIPTION =
-  'astro-notion-blog is generated statically by Astro'
+export const PUBLIC_SITE_TITLE = 'adoboshi.com'
+export const PUBLIC_SITE_DESCRIPTION = 'あどぼしのポートフォリオサイト'
