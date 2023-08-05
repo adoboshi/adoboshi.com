@@ -1,0 +1,34 @@
+---
+import type { SelectProperty } from "../lib/interfaces.ts";
+import { getTagLink } from "../lib/blog-helpers.ts";
+import NoContents from "./NoContents.astro";
+import "../styles/notion-color.css";
+
+export interface Props {
+  heading: string;
+  tags: SelectProperty[];
+}
+
+const { heading, tags } = Astro.props;
+---
+
+<div class="hidden md:block">
+  <h3 class="text-lg font-semibold text-center mb-1">
+    タグ一覧
+  </h3>
+  {
+    tags.length === 0 ? (
+      <NoContents contents={tags} />
+    ) : (
+      <ul>
+        {tags.map((tag: SelectProperty) => (
+          <li class="mb-2">
+            <a href={getTagLink(tag.name)} class={`tag ${tag.color} p-0.5 font-semibold text-sm text-gray-700 border rounded border-gray-500`}>
+              {tag.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</div>

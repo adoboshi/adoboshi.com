@@ -1,0 +1,21 @@
+---
+import { Post } from "../lib/interfaces.ts";
+import { getPostLink } from "../lib/blog-helpers.ts";
+
+export interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+---
+
+<div>
+  <a href={getPostLink(post.Slug)} class="text-blue-500 inline-flex items-center"
+    >続きを読む<svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="M12 5l7 7-7 7"></path>
+    </svg></a
+  >
+</div>
+
+<style></style>

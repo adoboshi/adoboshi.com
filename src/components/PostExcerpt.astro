@@ -1,0 +1,13 @@
+---
+import { Post } from "../lib/interfaces.ts";
+
+export interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+---
+
+<p class="leading-relaxed line-clamp-3">
+  {post.Excerpt ? post.Excerpt : ""}
+</p>

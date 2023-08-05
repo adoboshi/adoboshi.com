@@ -1,0 +1,65 @@
+---
+import { PUBLIC_SITE_TITLE } from '../server-constants.ts'
+import { getNavLink } from '../lib/blog-helpers.ts'
+
+export interface Props {
+  path: string
+}
+
+const { path = '/' } = Astro.props
+
+const navItems = [
+  { label: 'ホーム', path: '/' },
+  { label: 'ブログ', path: '/blog' },
+]
+---
+
+<div class="sm:sticky sm:top-0 sm:z-50">
+  <header
+    class="flex flex-wrap sm:justify-start sm:flex-nowrap w-full py-4 bg-gray-800"
+  >
+    <nav
+      class="max-w-5xl w-full mx-auto sm:flex sm:items-center sm:justify-between px-4"
+      aria-label="Global"
+    >
+      <h1>
+        <a
+          class="flex-none text-2xl text-white title-font tracking-wider"
+          href={getNavLink('/')}>{PUBLIC_SITE_TITLE}</a
+        >
+      </h1>
+      {
+        /*
+        TODO: タイトルロゴのフォントをおしゃれにする
+        参考：Fontsource　https://lon.sagisawa.me/2021/02/fontsource-for-handling-webfonts
+        */
+      }
+      <div
+        class="flex flex-row items-center gap-5 mt-5 sm:justify-end sm:mt-0 sm:pl-5"
+      >
+        {
+          navItems.map(({ label, path: p }) => (
+            <a
+              href={getNavLink(p)}
+              class={
+                p === path
+                  ? 'font-medium text-blue-300'
+                  : 'font-medium text-gray-100'
+              }
+            >
+              {label}
+            </a>
+          ))
+        }
+      </div>
+    </nav>
+  </header>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+  .title-font {
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 1px 1px 0 #dbcf4d;
+  }
+</style>
